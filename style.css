@@ -162,13 +162,14 @@ footer {
   .card { padding: 30px 20px; }
 }
 
-/* Special container for the 360 view */
+/* Updated container to hide the Google Maps header on mobile */
 .map-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* Keeps it in a nice widescreen shape */
+  padding-bottom: 75%; /* Made it a bit taller for better view */
   height: 0;
-  overflow: hidden;
+  /* This 'hidden' part is the secret—it cuts off the extra map area */
+  overflow: hidden; 
   border-radius: 25px;
   border: 6px solid white;
   box-shadow: 0 15px 40px rgba(0,0,0,0.25);
@@ -177,8 +178,12 @@ footer {
 
 .map-container iframe {
   position: absolute;
-  top: 0;
+  /* We move the map UP by 70px to hide the school name/header */
+  top: -70px; 
   left: 0;
   width: 100%;
-  height: 100%;
+  /* We make the map taller than the container to compensate for the top move */
+  height: calc(100% + 70px);
+  border: 0;
 }
+
