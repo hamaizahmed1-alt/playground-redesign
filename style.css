@@ -1,66 +1,115 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: #f4f6f8;
+  background: linear-gradient(180deg, #f4f6f8, #ffffff);
   color: #333;
+  line-height: 1.6;
 }
 
+/* Header */
 header {
-  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  background: linear-gradient(135deg, #43a047, #1b5e20);
   color: white;
+  padding: 80px 20px;
   text-align: center;
-  padding: 60px 20px;
+}
+
+.header-content {
+  max-width: 900px;
+  margin: auto;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
 }
 
 header p {
-  font-size: 1.1rem;
-  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0.95;
 }
 
-.section {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 0 20px;
+/* Main layout */
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-.section h2 {
+/* Card sections */
+.card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+  color: #1b5e20;
   margin-bottom: 15px;
-  color: #2E7D32;
 }
 
-.section img,
-.section video {
+/* Highlight section for video */
+.highlight {
+  border-left: 6px solid #43a047;
+}
+
+/* Media */
+.card img,
+.card video {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   margin-top: 15px;
 }
 
+/* Caption */
 .caption {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #666;
   margin-top: 8px;
 }
 
+/* Lists */
 ul {
   padding-left: 20px;
 }
 
 ul li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
+/* Footer */
 footer {
+  background-color: #e8e8e8;
   text-align: center;
-  padding: 30px;
-  background-color: #e0e0e0;
-  margin-top: 60px;
+  padding: 25px;
+  font-size: 0.9rem;
+  color: #444;
 }
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 22px;
+  }
+}
+
