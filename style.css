@@ -6,103 +6,93 @@
 body {
   margin: 0;
   padding: 0;
-  /* Deep, professional green gradient */
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
-  background-attachment: fixed; /* Keeps background still while scrolling */
-  color: #1b5e20;
+  /* Stronger Green Gradient Background */
+  background: linear-gradient(135deg, #2d5a27 0%, #1b5e20 100%);
+  background-attachment: fixed;
+  color: #333; /* Dark text for readability on white cards */
   line-height: 1.8;
-  position: relative;
+  min-height: 100vh;
 }
 
-/* THE LEAF EFFECT: 
-   Using a CSS-encoded SVG pattern so it works without external images 
+/* VISIBLE LEAF OVERLAY 
+   This creates a repeating leaf pattern across the whole site
 */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  opacity: 0.15;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1; /* Adjust this for more/less leaf visibility */
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-5 10-15 15-15 25s10 15 15 25c5-10 15-15 15-25s-10-15-15-25z' fill='%231b5e20' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 10c-10 20-30 30-30 50s20 30 30 50c10-20 30-30 30-50s-20-30-30-50z' fill='%23ffffff'/%3E%3C/svg%3E");
+  z-index: 0;
 }
 
-/* Header: Cinematic Design */
+/* Header */
 header {
-  background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.9)), 
-              url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=1000');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 120px 20px;
+  padding: 80px 20px;
   text-align: center;
-  clip-path: ellipse(150% 100% at 50% 0%); /* Curved bottom */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+header .badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 header h1 {
-  font-size: 3.5rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  font-size: 3rem;
+  margin: 20px 0;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-header p {
-  font-size: 1.3rem;
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-
-/* Layout */
+/* Main Content */
 main {
-  max-width: 850px;
-  margin: -60px auto 60px; /* Overlaps the header slightly */
-  padding: 0 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Fancy Glassmorphism Cards */
+/* Fancy White Cards */
 .card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px); /* Blurs the background behind the card */
-  border-radius: 30px;
-  padding: 45px;
+  background: white;
+  border-radius: 25px;
+  padding: 40px;
   margin-bottom: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 15px 35px rgba(0, 71, 10, 0.1);
-  transition: all 0.4s ease;
-  animation: float 6s ease-in-out infinite; /* Subtle movement */
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.02);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 20px 50px rgba(0, 71, 10, 0.15);
+  transform: translateY(-5px);
 }
 
 .card h2 {
-  font-size: 2rem;
-  border-bottom: 3px solid #43a047;
-  display: inline-block;
-  padding-bottom: 5px;
-  margin-bottom: 25px;
+  color: #2e7d32;
+  margin-top: 0;
+  font-size: 1.8rem;
+  border-left: 5px solid #43a047;
+  padding-left: 15px;
 }
 
-/* Centered & Sized Media */
+/* Centered & Smaller Video/Image */
 .video-container, .media-container {
-  width: 90%; 
-  max-width: 600px; /* Keeps video from being huge */
+  max-width: 500px; /* Reduced size to look professional */
   margin: 30px auto; 
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  border: 4px solid white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border: 5px solid #f0f0f0;
 }
 
 video, img {
@@ -110,39 +100,29 @@ video, img {
   display: block;
 }
 
-/* Feature List */
+/* List Styling */
 ul {
   list-style: none;
   padding: 0;
 }
 
 ul li {
-  padding: 15px 20px;
-  background: rgba(67, 160, 71, 0.1);
+  background: #f1f8e9;
   margin-bottom: 12px;
-  border-radius: 15px;
-  position: relative;
-  padding-left: 50px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  color: #1b5e20;
+  font-weight: 500;
 }
 
 ul li::before {
-  content: '🌿';
-  position: absolute;
-  left: 15px;
+  content: "🌿 ";
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 50px;
-  background: #1b5e20;
-  color: #a5d6a7;
+  padding: 40px;
+  color: rgba(255,255,255,0.7);
   font-size: 0.9rem;
-}
-
-/* Mobile Fixes */
-@media (max-width: 600px) {
-  header h1 { font-size: 2.2rem; }
-  .card { padding: 25px; }
-  .video-container { width: 100%; }
 }
