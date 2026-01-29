@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<body>
+  <button id="lang-switch">Translate to Spanish 🇪🇸</button>
   <header>
     <div class="header-content">
       <div class="badge">English Project</div>
@@ -112,10 +113,34 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // PASTE THIS BELOW:
+    const btn = document.getElementById('lang-switch');
+    let isEnglish = true;
+
+    btn.addEventListener('click', () => {
+      const enElements = document.querySelectorAll('.lang-en');
+      const esElements = document.querySelectorAll('.lang-es');
+
+      if (isEnglish) {
+        enElements.forEach(el => el.style.display = 'none');
+        esElements.forEach(el => el.style.display = 'block');
+        btn.innerText = "Translate to English 🇬🇧";
+      } else {
+        enElements.forEach(el => el.style.display = 'block');
+        esElements.forEach(el => el.style.display = 'none');
+        btn.innerText = "Translate to Spanish 🇪🇸";
+      }
+      isEnglish = !isEnglish;
+    });
   </script>
+
 
 </body>
 </html>
+
 
 
 
