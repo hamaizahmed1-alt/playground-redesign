@@ -162,13 +162,13 @@ footer {
   .card { padding: 30px 20px; }
 }
 
-/* Updated container to hide the Google Maps header on mobile */
+/* --- THE FIXED MAP SECTION --- */
+
 .map-container {
   position: relative;
   width: 100%;
-  padding-bottom: 75%; /* Made it a bit taller for better view */
+  padding-bottom: 85%; /* Slightly taller for a better square view on mobile */
   height: 0;
-  /* This 'hidden' part is the secret—it cuts off the extra map area */
   overflow: hidden; 
   border-radius: 25px;
   border: 6px solid white;
@@ -178,12 +178,36 @@ footer {
 
 .map-container iframe {
   position: absolute;
-  /* We move the map UP by 70px to hide the school name/header */
-  top: -70px; 
   left: 0;
   width: 100%;
-  /* We make the map taller than the container to compensate for the top move */
-  height: calc(100% + 70px);
   border: 0;
+}
+
+/* 💻 FOR COMPUTERS */
+@media (min-width: 601px) {
+  .map-container {
+    padding-bottom: 56.25%; /* Widescreen on PC */
+  }
+  .map-container iframe {
+    top: -70px; /* Hide small header */
+    height: calc(100% + 70px);
+  }
+}
+
+/* 📱 FOR PHONES (The fix you need) */
+@media (max-width: 600px) {
+  .map-container {
+    padding-bottom: 100%; /* Perfect square on mobile so you see more */
+  }
+  .map-container iframe {
+    /* We move it up MUCH more because the mobile header is huge */
+    top: -120px; 
+    height: calc(100% + 120px);
+  }
+  
+  /* Make the cards slightly less padded so the map can be bigger */
+  .card {
+    padding: 20px 15px;
+  }
 }
 
